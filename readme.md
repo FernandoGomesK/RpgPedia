@@ -29,6 +29,14 @@ Para adicionar esta extensão à sua mesa do Owlbear Rodeo, utilize o link do ma
 Para acessar o código-fonte, reportar problemas ou saber mais sobre o projeto, visite o repositório:
 [GitHub - FernandoGomesK/RpgPedia](https://github.com/FernandoGomesK/RpgPedia)
 
+## Como utilizar
+
+Para utilizar a extensão basta colocar o link da ficha na página inicial
+<img src="https://github.com/FernandoGomesK/RpgPedia/blob/main/abainicio.jpeg" alt="pagina inicial"/>
+
+após isso basta fazer o login na Rpg pédia e então utilizar a ficha dentro do Owlbear Rodeo
+
+<img src="https://github.com/FernandoGomesK/RpgPedia/blob/main/funcionando.jpeg" alt="ficha dentro do owlbear"/>
 ---
 
 ## 📝 Créditos e Atribuições
