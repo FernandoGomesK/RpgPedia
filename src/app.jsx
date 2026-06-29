@@ -1,94 +1,105 @@
-import React, { useState, useEffect } from 'react';
-import pencilIcon from '../src/assets/pencil.png'; 
+import React, { useState } from 'react';
 import OBR from '@owlbear-rodeo/sdk';
 
 function App() {
-  const startUrl = "https://rpgpedia.com/";
-  
   const [sheetUrl, setSheetUrl] = useState("");
-  const [currentUrl, setCurrentUrl] = useState(startUrl);
-  
-  const [isEditing, setIsEditing] = useState(false);
   const [tempUrl, setTempUrl] = useState("");
 
+ 
   const closeExtension = () => {
     if (OBR.isAvailable) {
       OBR.action.close();
     }
   };
 
-  useEffect(() => {
-    if (sheetUrl === "") {
-      setIsEditing(true);
+  
+  const handleSave = (e) => {
+    e.preventDefault();
+    if (tempUrl.trim() !== "") {
+      setSheetUrl(tempUrl);
     }
-  }, [sheetUrl]);
-
-  const handleSave = () => {
-    setSheetUrl(tempUrl);
-    setCurrentUrl(tempUrl);
-    setIsEditing(false);
   };
 
-  return (
-    <div className="w-full h-screen bg-[#606098] flex flex-col overflow-hidden m-0 p-0">
-      
-      <div className="w-full bg-black/40 text-white flex justify-between items-center px-4 py-2 shadow-md z-10">
-        <button 
-          onClick={() => setCurrentUrl(startUrl)}
-          className="bg-gray-600 hover:bg-gray-500 text-gray-300 text-xs font-bold px-3 py-1.5 rounded"
-        >
-          RPGpedia
-        </button>
+  // Home
+  if (!sheetUrl) {
+    return (
+      <div className="w-full h-screen bg-[#1e1e24] flex flex-col items-center justify-center p-6 text-white font-sans">
         
-        {/* Adicionei o gap-3 aqui para dar um pequeno espaço entre as ações da ficha e o botão de fechar */}
-        <div className="flex items-center gap-3">
-          {isEditing ? (
-            <>
-              <input 
-                type="text" 
-                placeholder="Cole o link da ficha..."
-                value={tempUrl}
-                onChange={(e) => setTempUrl(e.target.value)}
-                className="bg-gray-700 text-white text-xs px-2 py-1 rounded w-48"
-              />
-              <button onClick={handleSave} className="text-green-400 text-xs font-bold">OK</button>
-            </>
-          ) : (
-            <>
-              <button 
-                onClick={() => setCurrentUrl(sheetUrl)}
-                className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3 py-1.5 rounded"
-              >
-                Minha Ficha
-              </button>
-              <button onClick={() => setIsEditing(true)}>
-                <img src={pencilIcon} alt="Editar link" className="w-5 h-5 cursor-pointer opacity-70 hover:opacity-100" />
-              </button>
-            </>
-          )}
+      
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-extrabold text-indigo-400 mb-2">RPGpedia</h1>
+          <p className="text-sm text-gray-400">Integração Owlbear Rodeo</p>
+        </div>
 
+        
+        <form onSubmit={handleSave} className="w-full max-w-xs flex flex-col gap-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-300 mb-1">
+              LINK DA SUA FICHA:
+            </label>
+            <input 
+              type="url" 
+              placeholder="https://rpgpedia.com/..."
+              value={tempUrl}
+              onChange={(e) => setTempUrl(e.target.value)}
+              className="w-full bg-gray-800 border border-gray-700 text-white text-sm px-3 py-2 rounded focus:outline-none focus:border-indigo-500 transition-colors"
+              required
+            />
+          </div>
           
           <button 
-            onClick={closeExtension}
-            className="bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded"
+            type="submit" 
+            className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 rounded shadow-lg transition-colors"
           >
-            X
+            Carregar Ficha
           </button>
-        </div>
+        </form>
+
+        
+        <button 
+          onClick={closeExtension} 
+          className="mt-10 text-xs text-gray-500 hover:text-red-400 transition-colors underline"
+        >
+          Fechar painel
+        </button>
+
+      </div>
+    );
+  }
+
+// Parte da ficha
+
+  return (
+    <div className="relative w-full h-screen bg-[#1e1e24] overflow-hidden m-0 p-0">
+      
+      
+      <div className="absolute top-2 right-2 flex gap-2 z-50 opacity-20 hover:opacity-100 transition-opacity duration-300">
+        
+        <button 
+          onClick={() => setSheetUrl("")}
+          className="bg-gray-800/90 hover:bg-gray-700 text-white text-xs px-2.5 py-1.5 rounded shadow-md backdrop-blur-sm"
+          title="Editar/Trocar Link"
+        >
+          ✏️ Trocar
+        </button>
+
+        <button 
+          onClick={closeExtension}
+          className="bg-red-600/90 hover:bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded shadow-md backdrop-blur-sm"
+          title="Fechar Extensão"
+        >
+          X
+        </button>
+
       </div>
 
-      {currentUrl ? (
-        <iframe
-          src={currentUrl}
-          title="Ficha RPGpedia"
-          className="w-full grow border-none"
-          allowFullScreen
-        />
-      ) : (
-        <div className="grow flex items-center justify-center text-white text-sm">
-          Por favor, insira o link da sua ficha para começar.
-        </div>
-      )}
+      
+      <iframe
+        src={sheetUrl}
+        title="Ficha RPGpedia"
+        className="w-full h-full border-none"
+        allowFullScreen
+      />
       
     </div>
   );
