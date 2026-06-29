@@ -1,13 +1,16 @@
 ---
-title: <your extension's title>
-description: <your extension's description>
-author: <your extension's title>
-image: <your extension's hero image>
-icon: <your extension's icon>
+title: Owlbear RPGpedia
+description: Extensão do Owlbear Rodeo que permite abrir a RPGpedia no VTT, permitindo visualizar e acessar suas fichas de personagem diretamente no jogo.
+author: Fernando Gomes
+image: <adicione-aqui-o-link-para-uma-screenshot-da-extensao>
+icon: https://<seu-site-no-render>.onrender.com/icon.svg
 tags:
-  - <a tag for your extension>
-manifest: <a link to your extension's manifest file>
-learn-more: <a website link or email where users can find more>
+  - character sheet
+  - tools
+  - iframe
+manifest: https://<seu-site-no-render>.onrender.com/manifest.json
+learn-more: https://github.com/FernandoGomesK/RpgPedia
 ---
 
-pencil icon from  Pixel perfect from favicons
+### Créditos e Atribuições
+*   **Ícone de Lápis:** Criado por [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect) disponível em Flaticon.
