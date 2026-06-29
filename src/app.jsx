@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import pencilIcon from '../src/assets/pencil.png'; 
+import OBR from '@owlbear-rodeo/sdk';
 
 function App() {
   const startUrl = "https://rpgpedia.com/";
-  
   
   const [sheetUrl, setSheetUrl] = useState("");
   const [currentUrl, setCurrentUrl] = useState(startUrl);
@@ -11,7 +11,12 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [tempUrl, setTempUrl] = useState("");
 
-  
+  const closeExtension = () => {
+    if (OBR.isAvailable) {
+      OBR.action.close();
+    }
+  };
+
   useEffect(() => {
     if (sheetUrl === "") {
       setIsEditing(true);
@@ -35,7 +40,8 @@ function App() {
           RPGpedia
         </button>
         
-        <div className="flex items-center gap-2">
+        {/* Adicionei o gap-3 aqui para dar um pequeno espaço entre as ações da ficha e o botão de fechar */}
+        <div className="flex items-center gap-3">
           {isEditing ? (
             <>
               <input 
@@ -60,6 +66,14 @@ function App() {
               </button>
             </>
           )}
+
+          
+          <button 
+            onClick={closeExtension}
+            className="bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded"
+          >
+            X
+          </button>
         </div>
       </div>
 
