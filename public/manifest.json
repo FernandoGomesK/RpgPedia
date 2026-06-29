@@ -2,14 +2,12 @@
   "name": "Ficha RPGpedia",
   "version": "1.0.0",
   "manifest_version": 1,
-  "author": "Fernando Gomes", 
+  "author": "Fernando Gomes",
   "action": {
     "title": "ficha rpgpedia",
     "icon": "/icon.svg",
-    "popover": {
-      "width": 600,
-      "height": 1200,
-      "url": "/"
-    }
+    "popover": "/",
+    "width": 600,
+    "height": 1200
   }
 }
