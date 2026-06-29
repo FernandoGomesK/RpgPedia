@@ -4,9 +4,10 @@
   "manifest_version": 1,
   "action": {
     "title": "ficha rpgpedia",
+    "author": "Fernando Gomes",
     "icon": "/icon.svg",
     "popover": "/",
-    "height": 800,
-    "width": 800
+    "height": 1200,
+    "width": 600
   }
 }
