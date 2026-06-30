@@ -1,3 +1,15 @@
+---
+title: Owlbear RPGpedia
+description: Extensão que permite abrir a RPGpedia no VTT para visualizar suas fichas de personagem.
+author: Fernando Gomes
+image: https://raw.githubusercontent.com/FernandoGomesK/RpgPedia/main/extensao.jpeg
+icon: https://raw.githubusercontent.com/FernandoGomesK/RpgPedia/main/icon.svg
+tags:
+  - tool
+manifest: https://ficha-rpgpedia-owlbear.onrender.com/manifest.json
+learn-more: https://github.com/FernandoGomesK/RpgPedia
+---
+
 # Owlbear RPGpedia
 
 <img src="https://github.com/FernandoGomesK/RpgPedia/blob/main/icon.svg" alt="Ícone da Extensão" width="80"/>
