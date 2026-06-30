@@ -38,8 +38,9 @@ Para adicionar esta extensão à sua mesa do Owlbear Rodeo, utilize o link do ma
 **Fernando Gomes**
 
 ## 🔗 Saiba Mais
-Para acessar o código-fonte, reportar problemas ou saber mais sobre o projeto, visite o repositório:
-[GitHub - FernandoGomesK/RpgPedia](https://github.com/FernandoGomesK/RpgPedia)
+Para acessar o código-fonte, reportar problemas ou saber mais sobre o projeto, visite o repositório ou entre em contato através do Discord:
+* **GitHub:** [FernandoGomesK/RpgPedia](https://github.com/FernandoGomesK/RpgPedia)
+* **Discord:** `.khaace.`
 
 ## Como utilizar
 
